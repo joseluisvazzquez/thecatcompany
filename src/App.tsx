@@ -1,12 +1,21 @@
-import React from 'react';
-import 'mdb-react-ui-kit/dist/css/mdb.min.css'
-import logo from './logo.svg';
+import Home from "./Home";
+import Navigation from "./Navigation";
+// import Hotspots from "./Hotspots";
+// import Cuisine from "./Cuisine";
+// import Lodging from "./Lodging";
+// import Activities from "./Activities";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import Navbar from './Navbar'
 
 function App() {
-  return (
-    <Navbar/>
+  return(
+    <Router>
+      <Navigation/>
+      <Routes>
+          <Route index element={<Home/>}/>
+      </Routes>
+    </Router>
   );
 }
 
