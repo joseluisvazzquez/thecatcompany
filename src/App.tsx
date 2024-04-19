@@ -1,6 +1,6 @@
 import Home from "./Home";
 import Navigation from "./Navigation";
-import CatList from "./CatList";
+import CatList from "./Cats";
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -11,7 +11,7 @@ function App() {
       <Navigation/>
       <Routes>
           <Route index element={<Home/>}/>
-          <Route path="Hotspots" element={<CatList/>}/>
+          <Route path="CatList" element={<CatList/>}/>
       </Routes>
     </Router>
   );
