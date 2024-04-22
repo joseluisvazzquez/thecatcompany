@@ -1,65 +1,70 @@
-import { Card, ListGroup } from "react-bootstrap";
+import { useEffect, useState } from "react";
+import { Badge, Card, Col, Container, ListGroup, Row } from "react-bootstrap";
+
+interface Breed {
+  id: string;
+  name: string;
+  temperament: string;
+  origin: string;
+  country_codes: string;
+  country_code: string;
+  life_span: string; 
+  wikipedia_url: string;
+}
 
 interface Cat {
   id: string;
-  breeds: {
-    id: string;
-    name: string;
-    temperament: string;
-    origin: string;
-    country_codes: string;
-    country_code: string;
-    life_span: string; 
-    wikipedia_url: string;
-  }[];
+  breeds: Breed[];
   url: string;
   name: string;
   width: number;
 }
 
-interface CatDetailsProps {
-  catDetails: Cat;
-}
 
-const CatDetails: React.FC<CatDetailsProps> = ({ catDetails }) => {
+const CatDetails: React.FC = () => {
+  const [data, setData] = useState<Cat[]>([]);
+
+  useEffect(() => {
+    // Realiza la llamada a la API.
+    fetch('https://api.thecatapi.com/v1/images/search?limit=5&has_breeds=1&api_key=live_4yKfx4lZDgTLKXNOq4iR7yG1wDblgZe65OvKf0LQ72x7ffjKBabYoX4ADVv3eYQ3')
+      .then(response => response.json())
+      .then(data => setData(data))
+      .catch(error => console.error('Error:', error));
+  },[])
+
     
   return (
-    <Card>
-      <Card.Body>
-        <Card.Title>{catDetails?.breeds[0].name}</Card.Title>
-      
-        <Card.Header>Information</Card.Header>
-        <ListGroup variant="flush">
-          <ListGroup.Item>
-            Life Span: {catDetails?.breeds[0]?.life_span}
-          </ListGroup.Item>
+    <Container fluid="md" className='mt-5'>
+            <Row>
+                {data.map((cat, id) =>(
+                    <Col key={id} sm={3}>
+                        <Card className='shadow mt-3 mb-1'>
+                            <Card.Body className='mt-3'>
+                                {cat.breeds.map((breed, id) =>(
+                                  <>
+                                  <Card.Title>{breed.name}</Card.Title>
+                                  <ListGroup variant='dark' className='shadow-sm'>
+                                    <ListGroup.Item>
+                                      <Badge bg='danger'>Life Span:</Badge> {breed.life_span}
+                                    </ListGroup.Item>
 
-          <ListGroup.Item>
-            Origin: {catDetails?.breeds[0]?.origin}
-          </ListGroup.Item>
+                                    <ListGroup.Item>
+                                      <Badge bg='danger'>Temperament:</Badge> {breed.temperament}
+                                    </ListGroup.Item>
 
-          <ListGroup.Item>
-            Temperament: {catDetails?.breeds[0]?.temperament}
-          </ListGroup.Item>
-        </ListGroup>
+                                    <ListGroup.Item>
+                                      <Badge bg='danger'>Origin:</Badge> <p className='danger'>{breed.origin}</p>
+                                    </ListGroup.Item>
+                                  </ListGroup></>
+                                ))}
+                                <Card.Img variant="top" src={cat.url} className='rounded'/>
+                            </Card.Body>
+                        </Card>
+                    </Col>
+                ))}
+            </Row>
+        </Container>
 
-        <Card.Img
-          src={catDetails.url}
-          alt={`Cat photo, breed ${catDetails.name}`}
-          width={catDetails.width}
-          height={240}
-          className="rounded"
-        />
-        <p className="text-center mt-2">
-          <a
-            className="text-muted"
-            href={`${catDetails?.breeds[0]?.wikipedia_url}`}
-          >
-            Wikipedia
-          </a>
-        </p>
-      </Card.Body>
-    </Card>
   );
 };
 
