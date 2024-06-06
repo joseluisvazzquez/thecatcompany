@@ -11,7 +11,7 @@ function Navigation() {
         <Navbar.Brand as={Link} to="/"><img src={ico} style={{ width: "50px", height: "50px" }} /></Navbar.Brand>
         <Nav className="hola">
           <Link to="/CatList" className='me-4 lead text-decoration-none link-danger'>Cats!</Link>
-          <Link to="/Cuisine" className='me-4 lead text-decoration-none link-danger'>Looking for a cat?</Link>
+          <Link to="/CatSelector" className='me-4 lead text-decoration-none link-danger'>Looking for a cat?</Link>
         
         </Nav>
       </Container>

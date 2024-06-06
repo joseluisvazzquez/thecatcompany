@@ -26,7 +26,7 @@ const CatDetails: React.FC = () => {
 
   useEffect(() => {
     // Realiza la llamada a la API.
-    fetch('https://api.thecatapi.com/v1/images/search?limit=5&has_breeds=1&api_key=live_4yKfx4lZDgTLKXNOq4iR7yG1wDblgZe65OvKf0LQ72x7ffjKBabYoX4ADVv3eYQ3')
+    fetch('https://api.thecatapi.com/v1/images/search?limit=10&has_breeds=1&api_key=live_4yKfx4lZDgTLKXNOq4iR7yG1wDblgZe65OvKf0LQ72x7ffjKBabYoX4ADVv3eYQ3')
       .then(response => response.json())
       .then(data => setData(data))
       .catch(error => console.error('Error:', error));
@@ -57,7 +57,7 @@ const CatDetails: React.FC = () => {
                                     </ListGroup.Item>
                                   </ListGroup></>
                                 ))}
-                                <Card.Img variant="top" src={cat.url} className='rounded'/>
+                                <Card.Img variant="top" src={cat.url} className='rounded img-fluid'style={{height:"240px", width:"270px"}}/>
                             </Card.Body>
                         </Card>
                     </Col>

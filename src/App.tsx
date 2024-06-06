@@ -4,6 +4,7 @@ import CatList from "./CatDetails";
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import CatSelector from "./CatSelector";
 
 function App() {
   return(
@@ -12,6 +13,7 @@ function App() {
       <Routes>
           <Route index element={<Home/>}/>
           <Route path="CatList" element={<CatList/>}/>
+          <Route path="CatSelector" element={<CatSelector/>}/>
       </Routes>
     </Router>
   );
