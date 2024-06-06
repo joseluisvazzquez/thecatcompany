@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/joseluisvazzquez/thecatcompany/static/css/main.01b3e19f.css",
+    "main.js": "/joseluisvazzquez/thecatcompany/static/js/main.5f0f1950.js",
+    "static/js/453.3f8dad43.chunk.js": "/joseluisvazzquez/thecatcompany/static/js/453.3f8dad43.chunk.js",
+    "static/media/cat2.png": "/joseluisvazzquez/thecatcompany/static/media/cat2.710ae26c1495a172094f.png",
+    "static/media/cat1.png": "/joseluisvazzquez/thecatcompany/static/media/cat1.bfcad72ef0bf4cbcd014.png",
+    "static/media/cat3.png": "/joseluisvazzquez/thecatcompany/static/media/cat3.c8596e83cde7f2a5f6e0.png",
+    "static/media/ico.png": "/joseluisvazzquez/thecatcompany/static/media/ico.32a03fe976c59444fc63.png",
+    "index.html": "/joseluisvazzquez/thecatcompany/index.html",
+    "main.01b3e19f.css.map": "/joseluisvazzquez/thecatcompany/static/css/main.01b3e19f.css.map",
+    "main.5f0f1950.js.map": "/joseluisvazzquez/thecatcompany/static/js/main.5f0f1950.js.map",
+    "453.3f8dad43.chunk.js.map": "/joseluisvazzquez/thecatcompany/static/js/453.3f8dad43.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.01b3e19f.css",
+    "static/js/main.5f0f1950.js"
+  ]
+}
